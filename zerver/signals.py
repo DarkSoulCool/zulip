@@ -9,7 +9,7 @@ from django.utils.timezone import now as timezone_now
 from typing import Any, Dict, Optional
 from zerver.lib.send_email import send_email, FromAddress
 from zerver.models import UserProfile
-
+# Check Browser Selection
 def get_device_browser(user_agent):
     # type: (str) -> Optional[str]
     user_agent = user_agent.lower()
