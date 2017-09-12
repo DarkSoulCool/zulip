@@ -23,9 +23,9 @@ export default (env?: string) : Config => {
                     test: /\.tsx?$/,
                     use: 'ts-loader',
                 },
-                // This loads and transforms sourcemap files from other compiliers.
-                // The typescript comilier will generate a sourcemap and
-                // source-map-loader will output the correct sourcemap from that.
+                /* This loads and transforms sourcemap files from other compiliers.
+                   The typescript comilier will generate a sourcemap and
+                   source-map-loader will output the correct sourcemap from that. */
                 {
                     enforce: 'pre',
                     test: /\.js$/,
@@ -36,17 +36,17 @@ export default (env?: string) : Config => {
                     test: /\.tsx?$/,
                     use: "source-map-loader",
                 },
-                // Uses script-loader on minified files so we don't change global variables in them.
-                // Also has the effect of making processing these files fast
-                // Currently the source maps don't work with these so use unminified files
-                // if debugging is required.
+                /* Uses script-loader on minified files so we don't change global variables in them.
+                   Also has the effect of making processing these files fast
+                   Currently the source maps don't work with these so use unminified files
+                   if debugging is required.*/
                 {
                     test: /(min|zxcvbn)\.js/,
                     use: [ 'script-loader' ],
                 },
-                // Expose Global variables to webpack
-                // Use the unminified versions of jquery and underscore so that
-                // Good error messages show up in production and development in the source maps
+                /* Expose Global variables to webpack
+                   Use the unminified versions of jquery and underscore so that
+                   Good error messages show up in production and development in the source maps */
                 {
                     test: require.resolve('../static/node_modules/jquery/dist/jquery.js'),
                     use: [
