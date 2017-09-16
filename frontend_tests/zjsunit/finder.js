@@ -16,8 +16,7 @@ exports.find_files_to_run = function () {
           .map(function (filename) {return filename.replace(/\.js$/i, '');});
     }
 
-    // tests_dir is where we find our specific unit tests (as opposed
-    // to framework code)
+    // tests_dir is where we find our specific unit tests (as opposed to framework code)
     var tests_dir = __dirname.replace(/zjsunit/, 'node_tests');
 
     var tests = fs.readdirSync(tests_dir)
